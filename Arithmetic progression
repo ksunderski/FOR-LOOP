@@ -1,0 +1,9 @@
+function fillProgression(a1, d, n) {
+  const arr = [];
+  let element = a1;
+  for(let i = 0; i < n; i++){
+    arr.push(element);
+    element += d;
+  }
+  return arr;
+}
