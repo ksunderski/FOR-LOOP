@@ -1,0 +1,11 @@
+function reversedString(string, reversedString){
+  let compareReversed = '';
+  for(let i = 0; i < string.length; i++){
+    compareReversed = string[i] + compareReversed;
+    console.log(string[i]);
+  }
+  
+  return compareReversed === reversedString;
+}
+
+console.log(reversedString("hello", "olleh"));
