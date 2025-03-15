@@ -1,0 +1,10 @@
+function stopAt8Element(arr, start, end){
+  for(let i = start; i <= end; i++){
+    arr.push(i);
+    if(i === start + 7) break;
+  }
+  return arr;
+}
+
+console.log(stopAt8Element([], 1, 30));
+console.log(stopAt8Element([], 1, 7));
