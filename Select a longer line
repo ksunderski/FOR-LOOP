@@ -1,0 +1,13 @@
+function biggerString(str1, str2){
+  const arr = [];
+  let result = str1;
+  if(str1.length < str2.length) result = str2;
+  for (let i = 0; i < result.length; i++){
+    arr.unshift(result[i])
+  }
+  return arr;
+}
+
+console.log(biggerString('abc', 'abcd')) // should return ['d', 'c', 'b', 'a']
+console.log(biggerString('', 'abc'))     // should return ['c', 'b', 'a']
+console.log(biggerString('abc', 'abc'))  // should return ['c', 'b', 'a']
