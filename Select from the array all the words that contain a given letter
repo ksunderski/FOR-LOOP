@@ -1,0 +1,16 @@
+function filterByLetter(words, letter){
+  let arr = [];
+  for(let i = 0; i < words.length; i++){
+    if(words[i].toLowerCase().indexOf(letter.toLowerCase())!== -1) {                // indexOf() return -1 if the value not found
+    arr.push(words[i]);                                                             // add values to array s oit can be converted to string later with specified separator (';')
+    }    
+  }
+  let newStr = arr.join(';') 
+  return newStr;
+}
+
+console.log(filterByLetter(['West', 'work', 'core', 'rows', 'East'], 'w'));            // 'West;work;rows'
+console.log(filterByLetter(['West', 'work', 'core', 'rows', 'East'], 'C'));            // 'core'
+console.log(filterByLetter(['West', 'work', 'core', 'rows', 'East'], '');              // 'West;work;core;rows;East');
+console.log(filterByLetter([], 'W'));                                                  // ''
+console.log(filterByLetter(['123', 'Tie', 'welcoming', ' ', '', 'I am so sad'], ' ')   // ' ' ;I am so sad');
