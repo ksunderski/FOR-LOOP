@@ -1,0 +1,15 @@
+function reverseStringInArray(arr) {
+  let newArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    let chunk = '';
+    for (let j = arr[i].length - 1; j >= 0; j--) {
+      chunk += arr[i][j];
+    }
+    newArr.push(chunk);
+  }
+
+  return newArr;
+};
+
+console.log(reverseStringInArray(['hello', 'programming' ,'world']));    //should return ['olleh', 'gnimmargorp' ,'dlrow']
