@@ -1,0 +1,24 @@
+function isAnagram(str1, str2){
+    const s1 = str1.trim().toLowerCase();
+    const s2 = str2.trim().toLowerCase();
+
+    if(s1.length !== s2.length) return false;
+
+    const s2object = {};                        // create an object to store the letters of the second string
+
+    for(let i = 0; i < s2.length; i++){         // loop through all letters of the second string
+        s2object[s2[i]] = true;                 // add the letter to the object: `the key will be the letter, the value will be true`
+    }
+
+    for(let i = 0; i < s1.length; i++){         // the loop goes through all the letters of the first line
+        if(!s2object[s1[i]) return false;         // if there is no letter in the object, it is not an anagram
+    }
+
+    return true;
+}
+
+console.log(isAnagram('123', '923')); // false
+console.log(isAnagram('elbow', 'below')); // true
+console.log(isAnagram('laptop 123', 'toplap 125')); // false
+console.log(isAnagram('laptop 123', 'toplap 123')); // true
+console.log(isAnagram('laptop machines', 'Apple Macintosh')); // true
