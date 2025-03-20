@@ -1,0 +1,17 @@
+function isAnagram(str1, str2){
+  const s1 = str1.trim().toLowerCase();        // remove spaces and lowercase
+  const s2 = str2.trim().toLowerCase();
+
+  if(s1.length !== s2.length) return false;   // if string length is not equal, it is not anagram
+
+  for(let i = 0; i < s1.length; i++){         // the first loop goes through all letters of the first string
+    for(let j = 0; j < s2.length; j++){       // the second loop goes through all letters of the second string
+      if(s1[i] === s2[j]) break;              // if the letter of the first string is equal to the letter of the second string, then exit the loop
+      if(s2.length -1 === j) return false;    // if we have got to the end of the second line and have not found a match, then it is not anagram
+    }
+  }
+
+  return true;
+}
+
+console.log(isAnagram('elbow', 'below')); // true
