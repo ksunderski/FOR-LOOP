@@ -1,0 +1,15 @@
+function isAnagram(str1, str2){
+  s1 = str1.trim().toLowerCase();
+  s2 = str2.trim().toLowerCase();
+
+  if(!s1.length || !s2.length) return 'One or both strings are empty';
+
+  if(s1.length != s2.length) return false;
+  
+  return s1.split('').sort().join() === s2.split('').sort().join();
+}
+
+console.log(isAnagram(' Elbow', 'beloW '));  // true
+console.log(isAnagram(' 1 52 3', ' 3 2 1')); // false
+console.log(isAnagram('laptop', ''));        // returns 'One or both strings are empty
+console.log(isAnagram('', ''));              // returns 'One or both strings are empty
