@@ -1,0 +1,20 @@
+function isAnagram(arr){
+  for(let i = 1; i < arr.length; i++){
+    if(arr[0].length !== arr[i].length) return false; //check the first el length with other element lengths 
+  }
+  
+  const obj = {}                                      //create an object with first element and assign values to 'true';
+  for(let i = 0; i < arr[0].length; i++){
+    obj[arr[0][i]] = true;
+  }
+  
+  for(let i = 1; i < arr.length; i++){                //iterate through the array
+    for(let j = 0; j < arr[i].length; j++){           //iterate through the each index of element and check if their values are in object
+      if(!obj[arr[i][j]]) return false;               // if atleast one el isn't in the object, it's not anagram 
+    }
+  }
+  return true;
+};
+
+console.log(isAnagram(['1234', '4321', '3124', '2143']));   //true
+console.log(isAnagram(['cat', 'dog', 'big'])) // false
