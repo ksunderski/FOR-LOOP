@@ -1,0 +1,42 @@
+//Objective:
+//Implement a function that checks whether two given strings are anagrams of each other.
+//Two strings are considered anagrams if they contain the same characters in any order, ignoring case and spaces.
+
+function isAnagram(result){
+// Extract the two strings from the result object
+  let str1 = result.str1;
+  let str2 = result.str2;
+// Default to false — will change to true only if confirmed to be an anagram
+  result.result = false;
+  
+  const obj = {}; // Create an object to store character frequencies from str1
+
+// ✅ Step 1: Build frequency map from str1 (ignoring spaces and case)
+  for(let x of str1){
+    x = x.toLowerCase();
+    if(x !== ' ') {      
+      obj[x] = ++obj[x] || 1;
+    }   
+  }
+// ✅ Step 2: Subtract frequencies using characters from str2
+  for(let x of str2){
+    x = x.toLowerCase();
+    if(x === ' ') continue;  // Skip spaces
+    if(obj[x]) {
+      obj[x]--;             // Decrease count if character exists
+    } else {
+        return result;      // If character doesn't exist or was overused, not an anagram
+    }
+  }
+// ✅ Step 3: Ensure all character counts returned to 0 (no leftovers)
+  for(let key in obj){     
+    if(obj[key]!== 0) return result;
+  }
+// ✅ Step 4: All checks passed — it's an anagram!  
+  result.result = true;
+  return result;
+  
+}
+
+console.log(isAnagram({ str1: "D o G g o", str2: "g O d G   o" }));
+// ✅ Output: { str1: "D o G g o", str2: "g O d G   o", result: true }
